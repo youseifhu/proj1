@@ -16,5 +16,5 @@ jobs:
       - name: Build docker image
         run: docker build -t ${{ secrets.USERNAME }}/youseif_hussein_ibrahem_2023040287 .
 
-      - name: Push image
+      - name: Push docker image
         run: docker push ${{ secrets.USERNAME }}/youseif_hussein_ibrahem_2023040287
