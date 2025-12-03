@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: "Login Docker"
-        run: docker login --username ${{secrets.USERNAME}} --password ${{secrets.TOKEN}}
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.TOKEN }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin
 
-      - name: "Builing docker image"
-        run: docker build -t ${{secrets.USERNAME}}/youseif_hussein_ibrahem_2023040287 .
+      - name: Build docker image
+        run: docker build -t ${{ secrets.USERNAME }}/youseif_hussein_ibrahem_2023040287 .
 
-      - name: "Pushing to Docker hub"
-        run: docker push ${{secrets.USERNAME}}/youseif_hussein_ibrahem_2023040287
+      - name: Push image
+        run: docker push ${{ secrets.USERNAME }}/youseif_hussein_ibrahem_2023040287
